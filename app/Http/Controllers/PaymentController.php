@@ -18,14 +18,14 @@ class PaymentController extends Controller
 
     public function __construct()
     {
-        // Set the Xendit API key
-        Configuration::setXenditKey(env('XENDIT_WRITE_KEY'));
+        Configuration::setXenditKey(env('XENDIT_SECRET_KEY'));
     }
+
 
 
     public function store(Request $request)
     {
-        Configuration::setXenditKey(env('XENDIT_WRITE_KEY'));
+        Configuration::setXenditKey("xnd_development_0ZM0ougmyMFNOON9D89Rf3QhC18Whs8sm0YMZlNUODhFmLS0ZSy82mGN2ygssvi");
         $apiInstance = new InvoiceApi();
 
         $external_id = $request->input('external_id');
@@ -46,13 +46,19 @@ class PaymentController extends Controller
 
         try {
             $result = $apiInstance->createInvoice($create_invoice_request);
-            return response()->json(['message' => 'Invoice created successfully', 'data' => $result]);
+
+            $payment = new Payment();
+            $payment->external_id = $external_id;
+            $payment->checkout_link = $result['invoice_url'];
+            $payment->status = 'pending';
+            $payment->save();
+
+            return response()->json(['invoice_url' => $result['invoice_url']]);
 
         } catch (\Xendit\XenditSdkException $e) {
             return response()->json(['message' => 'Exception when calling InvoiceApi->createInvoice: ' . $e->getMessage(), 'full_error' => $e->getFullError()], 500);
         }
     }
-
 
     public function success()
     {

@@ -31,3 +31,4 @@ Route::post('/checkout', [PaymentController::class, 'checkout'])->name('checkout
 Route::get('/payment/success', [PaymentController::class, 'success'])->name('payment.success');
 Route::get('/payment/failed', [PaymentController::class, 'failed'])->name('payment.failed');
 Route::get('/invoice/{invoiceId}', [PaymentController::class, 'getInvoiceDetails'])->name('invoice.details');
+

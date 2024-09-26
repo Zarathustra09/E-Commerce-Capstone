@@ -3,43 +3,56 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Payment;
 use Illuminate\Http\Request;
-use Xendit\Xendit;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Str;
+use Xendit\Configuration;
+use Xendit\Invoice\CreateInvoiceRequest;
+use Xendit\Invoice\InvoiceApi;
+use Xendit\Invoice\InvoiceItem;
 
 class PaymentController extends Controller
 {
+    var $apiInstance = null;
+
     public function __construct()
     {
-        // Set the write API key by default
-        Xendit::setApiKey(env('XENDIT_WRITE_KEY'));
+        // Set the Xendit API key
+        Configuration::setXenditKey(env('XENDIT_WRITE_KEY'));
     }
 
-    public function checkout(Request $request)
+
+    public function store(Request $request)
     {
-        // Use the write API key for creating an invoice
-        Xendit::setApiKey(env('XENDIT_WRITE_KEY'));
+        Configuration::setXenditKey(env('XENDIT_WRITE_KEY'));
+        $apiInstance = new InvoiceApi();
 
-        $params = [
-            'external_id' => 'order-' . time(),
-            'amount' => 13500, // Replace with the actual amount
-            'payer_email' => $request->input('email'),
-            'description' => 'Order Payment'
-        ];
+        $external_id = $request->input('external_id');
+        $total = $request->input('total');
+        $success_redirect_url = route('payment.success');
+        $failure_redirect_url = route('payment.failed');
 
-        $invoice = \Xendit\Invoice::create($params);
+        $create_invoice_request = new CreateInvoiceRequest([
+            'external_id' => $external_id,
+            'description' => $external_id,
+            'amount' => $total,
+            'invoice_duration' => 172800,
+            'currency' => 'PHP',
+            'reminder_time' => 1,
+            'success_redirect_url' => $success_redirect_url,
+            'failure_redirect_url' => $failure_redirect_url
+        ]);
 
-        return redirect($invoice['invoice_url']);
+        try {
+            $result = $apiInstance->createInvoice($create_invoice_request);
+            return response()->json(['message' => 'Invoice created successfully', 'data' => $result]);
+
+        } catch (\Xendit\XenditSdkException $e) {
+            return response()->json(['message' => 'Exception when calling InvoiceApi->createInvoice: ' . $e->getMessage(), 'full_error' => $e->getFullError()], 500);
+        }
     }
 
-    public function getInvoiceDetails($invoiceId)
-    {
-        // Use the read API key for fetching invoice details
-        Xendit::setApiKey(env('XENDIT_READ_KEY'));
-
-        $invoice = \Xendit\Invoice::retrieve($invoiceId);
-
-        return response()->json($invoice);
-    }
 
     public function success()
     {

@@ -68,60 +68,57 @@
 
     <ul class="menu-inner py-1">
         <!-- Dashboard -->
-        <li class="menu-item active">
-            <a href="{{route('home')}}" class="menu-link">
+        <li class="menu-item {{ Request::is('home*') ? 'active' : '' }}">
+            <a href="{{ route('home') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div data-i18n="Analytics">Dashboard</div>
             </a>
         </li>
 
         <!-- Layouts -->
-
-
         <li class="menu-header small text-uppercase">
             <span class="menu-header-text">Interface</span>
         </li>
-        <li class="menu-item">
-            <a href="{{route('product.index')}}" class="menu-link">
+
+        <li class="menu-item {{ Request::is('product*') ? 'active' : '' }}">
+            <a href="{{ route('product.index') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-box"></i>
                 <div data-i18n="Products">Products</div>
             </a>
         </li>
 
-        <li class="menu-item">
-            <a href="categories.html" class="menu-link">
+        <li class="menu-item {{ Request::is('category*') ? 'active' : '' }}">
+            <a href="{{route('category.index')}}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-category"></i>
                 <div data-i18n="Categories">Category</div>
             </a>
         </li>
 
-        <li class="menu-item">
-            <a href="orders.html" class="menu-link">
+        <li class="menu-item {{ Request::is('orders*') ? 'active' : '' }}">
+            <a href="" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-list-check"></i>
                 <div data-i18n="Orders">Orders</div>
             </a>
         </li>
 
-        <li class="menu-item">
-            <a href="payments.html" class="menu-link">
+        <li class="menu-item {{ Request::is('payments*') ? 'active' : '' }}">
+            <a href="" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-credit-card"></i>
                 <div data-i18n="Payments">Payment</div>
             </a>
         </li>
 
-
         <!-- Misc -->
-        <li class="menu-header small text-uppercase"><span class="menu-header-text">Misc</span></li>
+        <li class="menu-header small text-uppercase">
+            <span class="menu-header-text">Misc</span>
+        </li>
+
         <li class="menu-item">
-            <a
-                href="https://github.com/themeselection/sneat-html-admin-template-free/issues"
-                target="_blank"
-                class="menu-link"
-            >
+            <a href="https://github.com/themeselection/sneat-html-admin-template-free/issues" target="_blank" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-support"></i>
                 <div data-i18n="Support">Support</div>
             </a>
         </li>
-
     </ul>
+
 </aside>

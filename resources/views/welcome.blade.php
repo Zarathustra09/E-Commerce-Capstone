@@ -48,185 +48,30 @@
     </section>
     <!-- About Section End -->
 
-    <!-- Categories Section Begin -->
-    <div class="categories">
-        <div class="container">
-            <div class="row">
-                <div class="categories__slider owl-carousel">
-                    <div class="categories__item">
-                        <div class="categories__item__icon">
-                            <span class="flaticon-029-cupcake-3"></span>
-                            <h5>Cupcake</h5>
-                        </div>
-                    </div>
-                    <div class="categories__item">
-                        <div class="categories__item__icon">
-                            <span class="flaticon-034-chocolate-roll"></span>
-                            <h5>Butter</h5>
-                        </div>
-                    </div>
-                    <div class="categories__item">
-                        <div class="categories__item__icon">
-                            <span class="flaticon-005-pancake"></span>
-                            <h5>Red Velvet</h5>
-                        </div>
-                    </div>
-                    <div class="categories__item">
-                        <div class="categories__item__icon">
-                            <span class="flaticon-030-cupcake-2"></span>
-                            <h5>Biscuit</h5>
-                        </div>
-                    </div>
-                    <div class="categories__item">
-                        <div class="categories__item__icon">
-                            <span class="flaticon-006-macarons"></span>
-                            <h5>Donut</h5>
-                        </div>
-                    </div>
-                    <div class="categories__item">
-                        <div class="categories__item__icon">
-                            <span class="flaticon-006-macarons"></span>
-                            <h5>Cupcake</h5>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Categories Section End -->
+
 
     <!-- Product Section Begin -->
     <section class="product spad">
         <div class="container">
             <div class="row">
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="img/shop/product-1.jpg">
-                            <div class="product__label">
-                                <span>Cupcake</span>
+                @foreach($products as $product)
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="product__item">
+                            <div class="product__item__pic set-bg" data-setbg="{{ asset('storage/' . $product->image) }}">
+                                <div class="product__label">
+                                    <span>{{ $product->category->name }}</span>
+                                </div>
                             </div>
-                        </div>
-                        <div class="product__item__text">
-                            <h6><a href="#">Dozen Cupcakes</a></h6>
-                            <div class="product__item__price">$32.00</div>
-                            <div class="cart_add">
-                                <a href="#">Add to cart</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="img/shop/product-2.jpg">
-                            <div class="product__label">
-                                <span>Cupcake</span>
-                            </div>
-                        </div>
-                        <div class="product__item__text">
-                            <h6><a href="#">Cookies and Cream</a></h6>
-                            <div class="product__item__price">$30.00</div>
-                            <div class="cart_add">
-                                <a href="#">Add to cart</a>
+                            <div class="product__item__text">
+                                <h6><a href="#">{{ $product->name }}</a></h6>
+                                <div class="product__item__price">${{ $product->price }}</div>
+                                <div class="cart_add">
+                                    <a href="#">Add to cart</a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="img/shop/product-3.jpg">
-                            <div class="product__label">
-                                <span>Cupcake</span>
-                            </div>
-                        </div>
-                        <div class="product__item__text">
-                            <h6><a href="#">Gluten Free Mini Dozen</a></h6>
-                            <div class="product__item__price">$31.00</div>
-                            <div class="cart_add">
-                                <a href="#">Add to cart</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="img/shop/product-4.jpg">
-                            <div class="product__label">
-                                <span>Cupcake</span>
-                            </div>
-                        </div>
-                        <div class="product__item__text">
-                            <h6><a href="#">Cookie Dough</a></h6>
-                            <div class="product__item__price">$25.00</div>
-                            <div class="cart_add">
-                                <a href="#">Add to cart</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="img/shop/product-5.jpg">
-                            <div class="product__label">
-                                <span>Cupcake</span>
-                            </div>
-                        </div>
-                        <div class="product__item__text">
-                            <h6><a href="#">Vanilla Salted Caramel</a></h6>
-                            <div class="product__item__price">$05.00</div>
-                            <div class="cart_add">
-                                <a href="#">Add to cart</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="img/shop/product-6.jpg">
-                            <div class="product__label">
-                                <span>Cupcake</span>
-                            </div>
-                        </div>
-                        <div class="product__item__text">
-                            <h6><a href="#">German Chocolate</a></h6>
-                            <div class="product__item__price">$14.00</div>
-                            <div class="cart_add">
-                                <a href="#">Add to cart</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="img/shop/product-7.jpg">
-                            <div class="product__label">
-                                <span>Cupcake</span>
-                            </div>
-                        </div>
-                        <div class="product__item__text">
-                            <h6><a href="#">Dulce De Leche</a></h6>
-                            <div class="product__item__price">$32.00</div>
-                            <div class="cart_add">
-                                <a href="#">Add to cart</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="img/shop/product-8.jpg">
-                            <div class="product__label">
-                                <span>Cupcake</span>
-                            </div>
-                        </div>
-                        <div class="product__item__text">
-                            <h6><a href="#">Mississippi Mud</a></h6>
-                            <div class="product__item__price">$08.00</div>
-                            <div class="cart_add">
-                                <a href="#">Add to cart</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>
@@ -252,16 +97,16 @@
     <div class="map">
         <div class="container">
             <div class="row">
-{{--                <div class="col-lg-4 col-md-7">--}}
-{{--                    <div class="map__inner">--}}
-{{--                        <h6>COlorado</h6>--}}
-{{--                        <ul>--}}
-{{--                            <li>SM City Santa Rosa, Old National Highway, Brgy, Manila S Rd, Santa Rosa, Laguna</li>--}}
-{{--                            <li>your@email.com</li>--}}
-{{--                            <li>+1 800-786-1000</li>--}}
-{{--                        </ul>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
+                {{--                <div class="col-lg-4 col-md-7">--}}
+                {{--                    <div class="map__inner">--}}
+                {{--                        <h6>COlorado</h6>--}}
+                {{--                        <ul>--}}
+                {{--                            <li>SM City Santa Rosa, Old National Highway, Brgy, Manila S Rd, Santa Rosa, Laguna</li>--}}
+                {{--                            <li>your@email.com</li>--}}
+                {{--                            <li>+1 800-786-1000</li>--}}
+                {{--                        </ul>--}}
+                {{--                    </div>--}}
+                {{--                </div>--}}
             </div>
         </div>
         <div class="map__iframe">

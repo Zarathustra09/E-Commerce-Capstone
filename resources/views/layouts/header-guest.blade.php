@@ -1,80 +1,110 @@
-
-<!-- Spinner Start -->
-<div id="spinner" class="show w-100 vh-100 bg-white position-fixed translate-middle top-50 start-50  d-flex align-items-center justify-content-center">
-    <div class="spinner-grow text-primary" role="status"></div>
+<!-- Page Preloder -->
+<div id="preloder">
+    <div class="loader"></div>
 </div>
-<!-- Spinner End -->
+
+<!-- Offcanvas Menu Begin -->
+<div class="offcanvas-menu-overlay"></div>
+<div class="offcanvas-menu-wrapper">
+    <div class="offcanvas__cart">
+        <div class="offcanvas__cart__links">
+            <a href="#" class="search-switch"><img src="img/icon/search.png" alt=""></a>
+            <a href="#"><img src="img/icon/heart.png" alt=""></a>
+        </div>
+        <div class="offcanvas__cart__item">
+            <a href="#"><img src="img/icon/cart.png" alt=""> <span>0</span></a>
+            <div class="cart__price">Cart: <span>$0.00</span></div>
+        </div>
+    </div>
+    <div class="offcanvas__logo">
+        <a href="./index.html"><img src="img/logo.png" alt=""></a>
+    </div>
+    <div id="mobile-menu-wrap"></div>
+    <div class="offcanvas__option">
+        <ul>
+            <li>USD <span class="arrow_carrot-down"></span>
+                <ul>
+                    <li>EUR</li>
+                    <li>USD</li>
+                </ul>
+            </li>
+            <li>ENG <span class="arrow_carrot-down"></span>
+                <ul>
+                    <li>Spanish</li>
+                    <li>ENG</li>
+                </ul>
+            </li>
+            <li><a href="#">Sign in</a> <span class="arrow_carrot-down"></span></li>
+        </ul>
+    </div>
+</div>
 
 
-<!-- Navbar start -->
-<div class="container-fluid fixed-top">
-    <div class="container topbar bg-primary d-none d-lg-block">
-        <div class="d-flex justify-content-between">
-            <div class="top-info ps-2">
-                <small class="me-3"><i class="fas fa-map-marker-alt me-2 text-secondary"></i> <a href="#" class="text-white">123 Street, New York</a></small>
-                <small class="me-3"><i class="fas fa-envelope me-2 text-secondary"></i><a href="#" class="text-white">Email@Example.com</a></small>
+<header class="header">
+    <div class="header__top">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="header__top__inner">
+                        <div class="header__top__left">
+                            <ul>
+{{--                                <li>USD <span class="arrow_carrot-down"></span>--}}
+{{--                                    <ul>--}}
+{{--                                        <li>EUR</li>--}}
+{{--                                        <li>USD</li>--}}
+{{--                                    </ul>--}}
+{{--                                </li>--}}
+{{--                                <li>ENG <span class="arrow_carrot-down"></span>--}}
+{{--                                    <ul>--}}
+{{--                                        <li>Spanish</li>--}}
+{{--                                        <li>ENG</li>--}}
+{{--                                    </ul>--}}
+{{--                                </li>--}}
+                                <li><a href="#">Sign in</a> <span class="arrow_carrot-down"></span></li>
+                            </ul>
+                        </div>
+                        <div class="header__logo">
+                            <a href="./index.html"><img src="img/logo.png" alt=""></a>
+                        </div>
+                        <div class="header__top__right">
+                            <div class="header__top__right__links">
+                                <a href="#" class="search-switch"><img src="img/icon/search.png" alt=""></a>
+{{--                                <a href="#"><img src="img/icon/heart.png" alt=""></a>--}}
+                            </div>
+                            <div class="header__top__right__cart">
+                                <a href="#"><img src="img/icon/cart.png" alt=""> <span>0</span></a>
+                                <div class="cart__price">Cart: <span>$0.00</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="top-link pe-2">
-                <a href="#" class="text-white"><small class="text-white mx-2">Privacy Policy</small>/</a>
-                <a href="#" class="text-white"><small class="text-white mx-2">Terms of Use</small>/</a>
-                <a href="#" class="text-white"><small class="text-white ms-2">Sales and Refunds</small></a>
+            <div class="canvas__open"><i class="fa fa-bars"></i></div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <nav class="header__menu mobile-menu">
+                    <ul>
+                        <li class="active"><a href="./index.html">Home</a></li>
+                        <li><a href="./about.html">About</a></li>
+                        <li><a href="./shop.html">Shop</a></li>
+{{--                        <li><a href="#">Pages</a>--}}
+{{--                            <ul class="dropdown">--}}
+{{--                                <li><a href="./shop-details.html">Shop Details</a></li>--}}
+{{--                                <li><a href="./shoping-cart.html">Shoping Cart</a></li>--}}
+{{--                                <li><a href="./checkout.html">Check Out</a></li>--}}
+{{--                                <li><a href="./wisslist.html">Wisslist</a></li>--}}
+{{--                                <li><a href="./Class.html">Class</a></li>--}}
+{{--                                <li><a href="./blog-details.html">Blog Details</a></li>--}}
+{{--                            </ul>--}}
+{{--                        </li>--}}
+{{--                        <li><a href="./blog.html">Blog</a></li>--}}
+                        <li><a href="./contact.html">Contact</a></li>
+                    </ul>
+                </nav>
             </div>
         </div>
     </div>
-    <div class="container px-0">
-        <nav class="navbar navbar-light bg-white navbar-expand-xl">
-            <a href="index.html" class="navbar-brand"><h1 class="text-primary display-6">Cakify</h1></a>
-            <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                <span class="fa fa-bars text-primary"></span>
-            </button>
-            <div class="collapse navbar-collapse bg-white" id="navbarCollapse">
-                <div class="navbar-nav mx-auto">
-                    <a href="index.html" class="nav-item nav-link active">Home</a>
-                    <a href="shop.html" class="nav-item nav-link">Shop</a>
-                    <a href="shop-detail.html" class="nav-item nav-link">Shop Detail</a>
-                    {{--                    <div class="nav-item dropdown">--}}
-                    {{--                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>--}}
-                    {{--                        <div class="dropdown-menu m-0 bg-secondary rounded-0">--}}
-                    {{--                            <a href="cart.html" class="dropdown-item">Cart</a>--}}
-                    {{--                            <a href="chackout.html" class="dropdown-item">Chackout</a>--}}
-                    {{--                            <a href="testimonial.html" class="dropdown-item">Testimonial</a>--}}
-                    {{--                            <a href="404.html" class="dropdown-item">404 Page</a>--}}
-                    {{--                        </div>--}}
-                    {{--                    </div>--}}
-                    <a href="contact.html" class="nav-item nav-link">Contact</a>
-                </div>
-                <div class="d-flex m-3 me-0">
-                    <button class="btn-search btn border border-secondary btn-md-square rounded-circle bg-white me-4" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fas fa-search text-primary"></i></button>
-                    <a href="{{route('checkout')}}" class="position-relative me-4 my-auto">
-                        <i class="fa fa-shopping-bag fa-2x"></i>
-                        <span class="position-absolute bg-secondary rounded-circle d-flex align-items-center justify-content-center text-dark px-1" style="top: -5px; left: 15px; height: 20px; min-width: 20px;">3</span>
-                    </a>
-                    <a href="#" class="my-auto">
-                        <i class="fas fa-user fa-2x"></i>
-                    </a>
-                </div>
-            </div>
-        </nav>
-    </div>
-</div>
-<!-- Navbar End -->
-
-
-<!-- Modal Search Start -->
-<div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-fullscreen">
-        <div class="modal-content rounded-0">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Search by keyword</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body d-flex align-items-center">
-                <div class="input-group w-75 mx-auto d-flex">
-                    <input type="search" class="form-control p-3" placeholder="keywords" aria-describedby="search-icon-1">
-                    <span id="search-icon-1" class="input-group-text p-3"><i class="fa fa-search"></i></span>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Modal Search End -->
+</header>

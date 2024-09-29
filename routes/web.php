@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,6 +26,18 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/checkout', function () {
     return view('guest.checkout');
 });
+
+Route::get('/product/index', [ProductController::class, 'index'])->name('product.index');
+Route::get('/product/datatable', [ProductController::class, 'dataTable'])->name('product.datatable');
+Route::get('/product/{id}', [ProductController::class, 'show']);
+Route::post('/product', [ProductController::class, 'store']);
+Route::get('/product/{id}/edit', [ProductController::class, 'edit']);
+Route::put('/product/{id}', [ProductController::class, 'update']);
+Route::delete('/product/{id}', [ProductController::class, 'destroy']);
+Route::get('/categories', [ProductController::class, 'getCategories']);
+
+
+
 
 
 Route::post('/checkout', [PaymentController::class, 'checkout'])->name('checkout');

@@ -3,13 +3,13 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
-    <title>Cakify</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-
+    <title>{{ config('app.name', 'Laravel') }}</title>
+    @stack('css')
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" type="text/css">
     <link rel="stylesheet" href="{{ asset('css/flaticon.css') }}" type="text/css">
     <link rel="stylesheet" href="{{ asset('css/barfiller.css') }}" type="text/css">
@@ -39,6 +39,24 @@
 <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
 <script src="{{ asset('js/jquery.nicescroll.min.js') }}"></script>
 <script src="{{ asset('js/main.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    @if(session('success'))
+    Swal.fire({
+        icon: 'success',
+        title: 'Success',
+        text: '{{ session('success') }}',
+    });
+    @endif
+
+    @if(session('error'))
+    Swal.fire({
+        icon: 'info',
+        title: 'Login',
+        text: '{{ session('error') }}',
+    });
+    @endif
+</script>
 </body>
 
 </html>

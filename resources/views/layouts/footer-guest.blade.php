@@ -1,4 +1,4 @@
-<footer class="footer set-bg" data-setbg="img/footer-bg.jpg">
+<footer class="footer set-bg" data-setbg="{{ asset('img/footer-bg.jpg') }}">
     <div class="container">
         <div class="row">
             <div class="col-lg-4 col-md-6 col-sm-6">
@@ -14,7 +14,9 @@
             <div class="col-lg-4 col-md-6 col-sm-6">
                 <div class="footer__about">
                     <div class="footer__logo">
-                        <a href="#"><img src="img/footer-logo.png" alt=""></a>
+                        <a href="#">
+                            <img src="{{ asset('img/footer-logo.png') }}" alt="">
+                        </a>
                     </div>
                     <p>Lorem ipsum dolor amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
                         labore dolore magna aliqua.</p>
@@ -42,9 +44,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-7">
-                    <p class="copyright__text text-white"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    <p class="copyright__text text-white">
                         Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | JoysPutoCake <i class="fa fa-heart" aria-hidden="true"></i>
-                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                     </p>
                 </div>
                 <div class="col-lg-5">

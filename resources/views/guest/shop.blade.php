@@ -33,9 +33,13 @@
                             </div>
                             <div class="product__item__text">
                                 <h6><a href="#">{{ $product->name }}</a></h6>
-                                <div class="product__item__price">${{ $product->price }}</div>
+                                <div class="product__item__price">₱{{ $product->price }}</div>
                                 <div class="cart_add">
-                                    <a href="#">Add to cart</a>
+                                    <form action="{{ route('cart.add') }}" method="POST" style="display: none;">
+                                        @csrf
+                                        <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                    </form>
+                                    <a href="#" onclick="event.preventDefault(); this.previousElementSibling.submit();">Add to cart</a>
                                 </div>
                             </div>
                         </div>

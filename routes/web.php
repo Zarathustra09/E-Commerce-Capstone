@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProductController;
@@ -25,11 +27,13 @@ Route::post('/shop/filter', [ShopController::class, 'filter'])->name('shop.filte
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/checkout', function () {
-    return view('guest.checkout');
-});
+Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add');
+Route::post('/cart/update-quantity', [CartController::class, 'updateQuantity']);
+
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+Route::get('/checkout', [CartController::class, 'index'])->name('checkout');
 
 Route::get('/product/index', [ProductController::class, 'index'])->name('product.index');
 Route::get('/product/datatable', [ProductController::class, 'dataTable'])->name('product.datatable');
